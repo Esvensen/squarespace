@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         const data = await response.json();
         const product = data.fields;
-        document.getElementById('product-image').innerHTML = `
+        document.getElementById('image-wrapper').innerHTML = `
             <img class="product-image" src="${product.Image ? product.Image[0].url : ""}" alt="${product['Display name']}">
         `;
         
