@@ -6,7 +6,7 @@ async function fetchProducts() {
     const tableName = "Objects";
     const apiKey = "patBJVJpMILwwIelu.34021ead804fb87fe18593ab487d487bf3a07412abf29ac33581eb88d8ef88c4";
     const url = `https://api.airtable.com/v0/${baseId}/${tableName}`;
-
+    
     try {
         const response = await fetch(url, {
             headers: {
@@ -78,18 +78,23 @@ function displayProducts(records) {
 
     records.forEach(record => {
         const product = record.fields;
+        const recordId = record.id; // Use Airtable's Record ID
+        const productPageURL = `/product?id=${recordId}`; // Create the product page URL with Record ID
+
         const productElement = `
             <div class="product">
-                <img src="${product.Image ? product.Image[0].url : ""}" alt="${product.Name}" />
-                <div class="details">
-                    <div>
-                        <h3>${product['Display name']}</h3>
-                        <p>${product.Designer}</p>
+                <a href="${productPageURL}" style="text-decoration: none; color: inherit;">
+                    <img src="${product.Image ? product.Image[0].url : ""}" alt="${product['Display name']}">
+                    <div class="details">
+                        <div>
+                            <h3>${product['Display name']}</h3>
+                            <p>${product.Designer || ""}</p>
+                        </div>
+                        <div>
+                            <a href="${productPageURL}">View Details</a>
+                        </div>
                     </div>
-                    <div>
-                        <a>Enquire</a>
-                    </div>
-                </div>
+                </a>
             </div>
         `;
         container.innerHTML += productElement;
