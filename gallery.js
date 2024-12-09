@@ -5,7 +5,7 @@ async function fetchProducts() {
     const baseId = "appmzLRsR8Rc9nNcq";
     const tableName = "Objects";
     const apiKey = "patBJVJpMILwwIelu.34021ead804fb87fe18593ab487d487bf3a07412abf29ac33581eb88d8ef88c4";
-    const url = `https://cors-anywhere.herokuapp.com/https://api.airtable.com/v0/${baseId}/${tableName}`;
+    const url = `https://api.airtable.com/v0/${baseId}/${tableName}`;
 
     try {
         const response = await fetch(url, {
