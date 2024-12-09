@@ -33,7 +33,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         `;
         
         document.getElementById('product-detail').innerHTML = `
-            <h2>${product.Designer}</h2>
             <h3>${product['Display name']}</h3>
             <div class="divider"></div>
             <p>${product.Description || "No description available."}</p>
