@@ -28,9 +28,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         const data = await response.json();
         const product = data.fields;
-        document.getElementById('image-wrapper').innerHTML = `
-            <img class="product-image" src="${product.Image ? product.Image[0].url : ""}" alt="${product['Display name']}">
-        `;
         
         document.getElementById('product-detail').innerHTML = `
             <h3>${product['Display name']}</h3>
